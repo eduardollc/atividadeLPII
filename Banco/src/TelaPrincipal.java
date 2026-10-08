@@ -12,10 +12,11 @@ import javax.swing.JOptionPane;
  */
 public class TelaPrincipal extends javax.swing.JFrame {
     
-    // Conta Corrente
-    private ContaCorrente contaCorrente;
-    
+    // Conta
     Conta conta = new Conta("", "", 0.0);
+    
+    //Conta corrente
+    private ContaCorrente contaCorrente;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TelaPrincipal.class.getName());
 
@@ -202,7 +203,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButton_AcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AcessarActionPerformed
         // TODO add your handling code here:
-        
         
         conta.setNumeroConta(jTextField_NumeroConta.getText());
         conta.setAgencia(jTextField_Agencia.getText());
