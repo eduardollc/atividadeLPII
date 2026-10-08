@@ -36,7 +36,7 @@ public class Conta {
  
     @Override
     public String toString() {
-        return String.format("%s:%s \n%s:%s \n%s:%s",
+        return String.format("%s \n%s: %s \n%s: %s",
                 "Sucesso ao acessar conta",
                 "Número da conta", numeroConta,
                 "Agência", agencia);
