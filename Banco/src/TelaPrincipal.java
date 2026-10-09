@@ -16,7 +16,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     //Conta corrente
     private ContaCorrente contaCorrente;
-    
+
     //Conta poupança
     private ContaPoupanca contaPoupanca;
 
@@ -47,12 +47,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton_Acessar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel_Saldo = new javax.swing.JLabel();
+        jLabel_SaldoCC = new javax.swing.JLabel();
         jCheckBox_CC = new javax.swing.JCheckBox();
         jButton_Depositar = new javax.swing.JButton();
         jButton_Sacar = new javax.swing.JButton();
         jCheckBox_CP = new javax.swing.JCheckBox();
         jButton_AplicarRendimento = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel_SaldoCP = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,9 +119,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Saldo");
 
-        jLabel_Saldo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel_Saldo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_Saldo.setText("0.00");
+        jLabel_SaldoCC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel_SaldoCC.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_SaldoCC.setText("0.00");
 
         jCheckBox_CC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox_CC.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,6 +144,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton_AplicarRendimento.setEnabled(false);
         jButton_AplicarRendimento.addActionListener(this::jButton_AplicarRendimentoActionPerformed);
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Saldo");
+
+        jLabel_SaldoCP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel_SaldoCP.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel_SaldoCP.setText("0.00");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -149,37 +159,47 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox_CC)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jButton_Depositar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton_Sacar))
-                    .addComponent(jCheckBox_CP)
-                    .addComponent(jButton_AplicarRendimento)
+                        .addComponent(jCheckBox_CC)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jCheckBox_CP)
+                        .addGap(59, 59, 59))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel_Saldo)))
-                .addContainerGap(136, Short.MAX_VALUE))
+                        .addComponent(jLabel_SaldoCC)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel_SaldoCP)
+                        .addGap(102, 102, 102))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton_Depositar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton_Sacar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton_AplicarRendimento)
+                        .addContainerGap(36, Short.MAX_VALUE))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(64, 64, 64)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel_Saldo))
+                    .addComponent(jLabel_SaldoCC)
+                    .addComponent(jLabel_SaldoCP)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCheckBox_CC)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox_CC)
+                    .addComponent(jCheckBox_CP))
+                .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton_Depositar)
-                    .addComponent(jButton_Sacar))
-                .addGap(33, 33, 33)
-                .addComponent(jCheckBox_CP)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton_AplicarRendimento)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton_Sacar)
+                    .addComponent(jButton_AplicarRendimento))
+                .addGap(111, 111, 111))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -206,24 +226,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButton_AcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AcessarActionPerformed
         // TODO add your handling code here:
-
-        contaCorrente = new ContaCorrente(
-                jTextField_NumeroConta.getText(),
-                jTextField_Agencia.getText(),
-                0.0
-        );
-        
-        contaPoupanca = new ContaPoupanca(
-                jTextField_NumeroConta.getText(),
-                jTextField_Agencia.getText(),
-                0.0
-        );
-        
-        conta.setNumeroConta(jTextField_NumeroConta.getText());
-        conta.setAgencia(jTextField_Agencia.getText());
-        jLabel_Saldo.setText("0.00");
-
-        JOptionPane.showMessageDialog(null, conta.toString());
     }//GEN-LAST:event_jButton_AcessarActionPerformed
 
     private void jCheckBox_CCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox_CCActionPerformed
@@ -244,9 +246,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if (jCheckBox_CP.isSelected()) {
+            jButton_Depositar.setEnabled(true);
+            jButton_Sacar.setEnabled(true);
             jButton_AplicarRendimento.setEnabled(true);
             jCheckBox_CC.setEnabled(false);
         } else {
+            jButton_Depositar.setEnabled(false);
+            jButton_Sacar.setEnabled(false);
             jButton_AplicarRendimento.setEnabled(false);
             jCheckBox_CC.setEnabled(true);
         }
@@ -254,31 +260,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButton_DepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DepositarActionPerformed
         // TODO add your handling code here:
-
-        String valorDepositoString = JOptionPane.showInputDialog(null, "Valor: ");
-        Double valorDeposito = Double.parseDouble(valorDepositoString);
-
-        contaCorrente.depositar(valorDeposito);
-
-        jLabel_Saldo.setText(String.format("R$ %.2f", contaCorrente.obterSaldo()));
-  
     }//GEN-LAST:event_jButton_DepositarActionPerformed
 
     private void jButton_SacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SacarActionPerformed
         // TODO add your handling code here:
-        
-        String valorSaqueString = JOptionPane.showInputDialog(null, "Valor: ");
-        Double valorSaque = Double.parseDouble(valorSaqueString);
-        
-        contaCorrente.sacar(valorSaque);
-        jLabel_Saldo.setText(String.format("R$ %.2f", contaCorrente.obterSaldo()));
     }//GEN-LAST:event_jButton_SacarActionPerformed
 
     private void jButton_AplicarRendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AplicarRendimentoActionPerformed
         // TODO add your handling code here:
-        
-        contaPoupanca.rendimento();
-  
     }//GEN-LAST:event_jButton_AplicarRendimentoActionPerformed
 
     /**
@@ -317,7 +306,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel_Saldo;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel_SaldoCC;
+    private javax.swing.JLabel jLabel_SaldoCP;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextField_Agencia;
