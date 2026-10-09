@@ -276,6 +276,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButton_AplicarRendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AplicarRendimentoActionPerformed
         // TODO add your handling code here:
+        
+        contaPoupanca.rendimento();
   
     }//GEN-LAST:event_jButton_AplicarRendimentoActionPerformed
 
