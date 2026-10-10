@@ -226,6 +226,23 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButton_AcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AcessarActionPerformed
         // TODO add your handling code here:
+        conta.setNumeroConta(jTextField_NumeroConta.getText());
+        conta.setAgencia(jTextField_Agencia.getText());
+
+        contaCorrente = new ContaCorrente(
+                jTextField_NumeroConta.getText(),
+                jTextField_Agencia.getText(),
+                0.00
+        );
+        
+        contaPoupanca = new ContaPoupanca(
+                jTextField_NumeroConta.getText(),
+                jTextField_Agencia.getText(),
+                0.00
+        );
+
+        JOptionPane.showMessageDialog(null, conta.toString());
+
     }//GEN-LAST:event_jButton_AcessarActionPerformed
 
     private void jCheckBox_CCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox_CCActionPerformed
@@ -260,6 +277,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButton_DepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DepositarActionPerformed
         // TODO add your handling code here:
+        
+        if(jCheckBox_CC.isSelected()){
+            
+            String valorDepositoCCString = JOptionPane.showInputDialog(null, "Valor: ");
+            Double valorDepositoCC = Double.parseDouble(valorDepositoCCString);
+            
+            contaCorrente.depositar(valorDepositoCC);
+            jLabel_SaldoCC.setText(valorDepositoCCString);
+            JOptionPane.showMessageDialog(null, contaCorrente.toString());
+        } else {
+            
+            String valorDepositoCPString = JOptionPane.showInputDialog(null, "Valor: ");
+            Double valorDepositoCP = Double.parseDouble(valorDepositoCPString);
+            
+            contaPoupanca.depositar(valorDepositoCP);
+            jLabel_SaldoCP.setText(valorDepositoCPString);
+            JOptionPane.showMessageDialog(null, contaPoupanca.toString());
+        }
+
     }//GEN-LAST:event_jButton_DepositarActionPerformed
 
     private void jButton_SacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SacarActionPerformed
