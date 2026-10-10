@@ -38,13 +38,5 @@ public class ContaPoupanca extends Conta {
        return getSaldo();
         
     }
-    
-    @Override
-    public String toString(){
-        return String.format("%s \n%s:%s \n%s:%s",
-                "Sucesso",
-                "Saldo Inicial", getSaldo(),
-                "Saldo Atual", obterSaldo());
-    }
-    
+ 
 }

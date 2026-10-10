@@ -121,7 +121,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel_SaldoCC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel_SaldoCC.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_SaldoCC.setText("0.00");
+        jLabel_SaldoCC.setText("R$ 0.00");
 
         jCheckBox_CC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jCheckBox_CC.setForeground(new java.awt.Color(255, 255, 255));
@@ -150,7 +150,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel_SaldoCP.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel_SaldoCP.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel_SaldoCP.setText("0.00");
+        jLabel_SaldoCP.setText("R$ 0.00");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -234,7 +234,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jTextField_Agencia.getText(),
                 0.00
         );
-        
+
         contaPoupanca = new ContaPoupanca(
                 jTextField_NumeroConta.getText(),
                 jTextField_Agencia.getText(),
@@ -277,33 +277,53 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jButton_DepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DepositarActionPerformed
         // TODO add your handling code here:
-        
-        if(jCheckBox_CC.isSelected()){
-            
+
+        if (jCheckBox_CC.isSelected()) {
+
             String valorDepositoCCString = JOptionPane.showInputDialog(null, "Valor: ");
             Double valorDepositoCC = Double.parseDouble(valorDepositoCCString);
-            
+
             contaCorrente.depositar(valorDepositoCC);
-            jLabel_SaldoCC.setText(valorDepositoCCString);
-            JOptionPane.showMessageDialog(null, contaCorrente.toString());
+            jLabel_SaldoCC.setText(String.format("R$ %.2f", contaCorrente.getSaldo()));
+            JOptionPane.showMessageDialog(null, "Sucesso");
         } else {
-            
+
             String valorDepositoCPString = JOptionPane.showInputDialog(null, "Valor: ");
             Double valorDepositoCP = Double.parseDouble(valorDepositoCPString);
-            
+
             contaPoupanca.depositar(valorDepositoCP);
-            jLabel_SaldoCP.setText(valorDepositoCPString);
-            JOptionPane.showMessageDialog(null, contaPoupanca.toString());
+            jLabel_SaldoCP.setText(String.format("R$ %.2f", contaPoupanca.getSaldo()));
+            JOptionPane.showMessageDialog(null, "Sucesso");
         }
 
     }//GEN-LAST:event_jButton_DepositarActionPerformed
 
     private void jButton_SacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_SacarActionPerformed
         // TODO add your handling code here:
+        if (jCheckBox_CC.isSelected()) {
+
+            String valorDepositoCCString = JOptionPane.showInputDialog(null, "Valor: ");
+            Double valorDepositoCC = Double.parseDouble(valorDepositoCCString);
+
+            contaCorrente.sacar(valorDepositoCC);
+            jLabel_SaldoCC.setText(String.format("R$ %.2f", contaCorrente.getSaldo()));
+            JOptionPane.showMessageDialog(null, "Sucesso");
+        } else {
+
+            String valorDepositoCPString = JOptionPane.showInputDialog(null, "Valor: ");
+            Double valorDepositoCP = Double.parseDouble(valorDepositoCPString);
+
+            contaPoupanca.sacar(valorDepositoCP);
+            jLabel_SaldoCP.setText(String.format("R$ %.2f", contaPoupanca.getSaldo()));
+            JOptionPane.showMessageDialog(null, "Sucesso");
+        }
     }//GEN-LAST:event_jButton_SacarActionPerformed
 
     private void jButton_AplicarRendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_AplicarRendimentoActionPerformed
         // TODO add your handling code here:
+        contaPoupanca.rendimento();
+        jLabel_SaldoCP.setText(String.format("R$ %.2f", contaPoupanca.obterSaldo()));
+        
     }//GEN-LAST:event_jButton_AplicarRendimentoActionPerformed
 
     /**
